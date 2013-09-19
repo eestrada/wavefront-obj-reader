@@ -45,6 +45,8 @@ private:
         while(!objfile.eof())
         {
             getline(objfile, line);
+            if(line.empty()) continue; //if line is empty, restart loop
+
             std::istringstream strm(line);
 
             strm >> tmp;

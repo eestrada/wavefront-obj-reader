@@ -7,7 +7,7 @@ struct vertex
 {
     float px, py, pz;
     float nx, ny, nz;
-    float s, t;
+    float u, v, w;
 };
 
 struct position
@@ -52,9 +52,10 @@ inline std::ostream & operator<<(std::ostream &out, texcoords tex)
 
 inline std::ostream & operator<<(std::ostream &out, triangle t)
 {
-    out << "f" << " " << t.pos[0] << "/" << t.tex[0] << " ";
-    out << t.pos[1] << "/" << t.tex[1] << " ";
-    out << t.pos[2] << "/" << t.tex[2];
+    // Add one to these for printing for obj style indexing
+    out << "f" << " " << t.pos[0] + 1 << "/" << t.tex[0] + 1 << " ";
+    out << t.pos[1] + 1 << "/" << t.tex[1] + 1 << " ";
+    out << t.pos[2] + 1 << "/" << t.tex[2] + 1;
     return out;
 }
 
